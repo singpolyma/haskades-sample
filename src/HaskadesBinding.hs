@@ -1,3 +1,4 @@
+{-# LANGUAGE ForeignFunctionInterface #-}
 module HaskadesBinding (haskadesRun, emit) where
 
 import Foreign.C.Types

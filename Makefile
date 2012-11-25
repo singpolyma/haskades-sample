@@ -1,7 +1,7 @@
 QMAKE_TARGET  = sample
 QMAKE         = $(QNX_HOST)/usr/bin/qmake
 TARGET        = $(QMAKE_TARGET)
-GHC_X86       = ghc
+GHC_X86       = ghc -O2 -XHaskell98 -Wall -fno-warn-name-shadowing
 GHC_ARM       = echo
 
 
