@@ -19,6 +19,6 @@ clockThread = forever $ do
 main :: IO ()
 main = do
 	void $ forkIO clockThread
-	haskadesRun ("asset:///ui.qml") (Slots {
-		mkFile = (\pth -> writeFile pth "lol file\n")
-	})
+	haskadesRun "asset:///ui.qml" Slots {
+		mkFile = (`writeFile` "lol file\n")
+	}
