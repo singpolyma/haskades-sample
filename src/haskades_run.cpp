@@ -21,17 +21,17 @@
 #include <bb/cascades/Page>
 
 QEvent::Type customSignalEventType;
-#define CUSTOM_SIGNAL_clockTick 0
+#define CUSTOM_SIGNAL_clockTick 1
 
 class CustomSignalEvent : public QEvent {
 
 public:
-	CustomSignalEvent(int signalIdx, QString str0) : QEvent(customSignalEventType) {
-		this->signalIdx = signalIdx;
+	CustomSignalEvent(int signalEvent, QString str0) : QEvent(customSignalEventType) {
+		this->signalEvent = signalEvent;
 		this->str0 = str0;
 	}
 
-	int signalIdx;
+	int signalEvent;
 	QString str0;
 };
 
@@ -65,7 +65,7 @@ public:
 	virtual bool event(QEvent *e) {
 		if(e->type() == customSignalEventType) {
 			CustomSignalEvent *ev = (CustomSignalEvent*)e;
-			switch(ev->signalIdx) {
+			switch(ev->signalEvent) {
 				case CUSTOM_SIGNAL_clockTick:
 					emit clockTick(ev->str0);
 					return true;
@@ -93,8 +93,8 @@ extern "C" {
 
 QObject *mainAppGlobal;
 
-void emit_clockTick(const char *str0) {
-	QEvent *e = (QEvent *)new CustomSignalEvent(CUSTOM_SIGNAL_clockTick, QString::fromUtf8(str0));
+void emit_CustomSignalEvent(int signalEvent, const char *str0) {
+	QEvent *e = (QEvent *)new CustomSignalEvent(signalEvent, QString::fromUtf8(str0));
 	QCoreApplication::postEvent(mainAppGlobal, e);
 }
 
