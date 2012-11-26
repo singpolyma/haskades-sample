@@ -2,7 +2,7 @@ import bb.cascades 1.0
 
 Page {
 	onCreationCompleted: {
-		app.clockTick.connect(function(t) {clockText.text = t;});
+		app.ClockTick.connect(function(t) {clockText.text = t;});
 	}
 
 	Container {
