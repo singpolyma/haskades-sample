@@ -2,3 +2,5 @@ arm/*
 x86/*
 *.bar
 *.qm
+src/HaskadesBinding.hs
+src/haskades_run.cpp
