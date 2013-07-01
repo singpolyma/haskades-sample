@@ -1,7 +1,5 @@
 module Types where
 
-data Slots = Slots {
-		mkFile :: String -> IO ()
-	}
+data SignalToUI = ClockTick String
 
-data Signal = ClockTick String
+data SignalFromUI = MkFile String

@@ -44,7 +44,7 @@ Page {
 				id: someButton
 				text: "Write a file to /tmp/lol"
 				onClicked: {
-					app.mkFile("/tmp/lol");
+					app.MkFile("/tmp/lol");
 				}
 			}
 		}

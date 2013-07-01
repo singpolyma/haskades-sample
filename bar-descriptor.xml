@@ -18,7 +18,7 @@
 	<!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade.
 		 Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
 		 An updated version of application must have a versionNumber value higher than the previous version. Required. -->
-	<versionNumber>1.0.0</versionNumber>
+	<versionNumber>2.0.0</versionNumber>
 
 	<!-- Fourth digit segment of the package version. First three segments are taken from the
 		 <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
@@ -29,7 +29,7 @@
 	<description>The haskades sample application</description>
 
 	<!--  Name of author which is used for signing. Must match the developer name of your development certificate. -->
-	<author>Example Inc.</author>
+	<author>Example, Inc</author>
 
 	<initialWindow>
 		<aspectRatio>portrait</aspectRatio>
@@ -38,28 +38,25 @@
 		<transparent>false</transparent>
 	</initialWindow>
 
+	<cascadesTheme>dark</cascadesTheme>
+
 	<!--  The category where the application appears. Either core.games or core.media. -->
-	<category>core.games</category>
-<!--
-	<configuration id="com.qnx.qcc.toolChain.398719213" name="Default">
-	   <platformArchitecture>armle-v7</platformArchitecture>
-	   <asset path="arm/o.le-v7-g/hellocascades" entry="true" type="Qnx/Elf">hellocascades</asset>
-	</configuration>
+	<category>core.media</category>
 	<configuration id="com.qnx.qcc.toolChain.530812073" name="Device-Debug">
-	   <platformArchitecture>armle-v7</platformArchitecture>
-	   <asset path="arm/o.le-v7-g/hellocascades" entry="true" type="Qnx/Elf">hellocascades</asset>
+		<platformArchitecture>armle-v7</platformArchitecture>
+		<asset path="arm/o.le-v7-g/Main" entry="true" type="Qnx/Elf">Main</asset>
+		<asset path="arm/o.le-v7-g/libsample.so.1" type="Qnx/Elf">lib/libsample.so.1</asset>
 	</configuration>
 	<configuration id="com.qnx.qcc.toolChain.585662339" name="Device-Release">
-	   <platformArchitecture>armle-v7</platformArchitecture>
-	   <asset path="arm/o.le-v7/hellocascades" entry="true" type="Qnx/Elf">hellocascades</asset>
+		<platformArchitecture>armle-v7</platformArchitecture>
+		<asset path="arm/o.le-v7/Main" entry="true" type="Qnx/Elf">Main</asset>
+		<asset path="arm/o.le-v7/libsample.so.1" type="Qnx/Elf">lib/libsample.so.1</asset>
 	</configuration>
 	<configuration id="com.qnx.qcc.toolChain.1526872727" name="Simulator-Debug">
-	   <platformArchitecture>x86</platformArchitecture>
-	   <asset path="x86/o-g/hellocascades" entry="true" type="Qnx/Elf">hellocascades</asset>
+		<platformArchitecture>x86</platformArchitecture>
+		<asset path="x86/o-g/Main" entry="true" type="Qnx/Elf">Main</asset>
+		<asset path="x86/o-g/libsample.so.1" type="Qnx/Elf">lib/libsample.so.1</asset>
 	</configuration>
--->
-	<asset path="x86/o-g/Main" entry="true" type="Qnx/Elf">Main</asset>
-	<asset path="x86/o-g/libsample.so.1" entry="true" type="Qnx/Elf">lib/libsample.so.1</asset>
 
 	<!-- Application assets -->
 	<asset path="assets">assets</asset>
