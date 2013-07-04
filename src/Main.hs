@@ -16,14 +16,9 @@ clockThread = forever $ do
 	emit $ ClockTick (formatTime defaultTimeLocale "%H:%M:%S" time)
 	threadDelay 1000000
 
-fromUIThread :: IO ()
-fromUIThread = forever (popSignalFromUI >>= handleFromUI)
-
-handleFromUI :: SignalFromUI -> IO ()
-handleFromUI (MkFile pth) =  pth `writeFile` "lol file\n"
-
 main :: IO ()
 main = do
 	void $ forkIO clockThread
-	void $ forkIO fromUIThread
-	haskadesRun "asset:///ui.qml"
+	haskadesRun "asset:///ui.qml" (\(MkFile pth) ->
+			pth `writeFile` "lol file\n"
+		)
